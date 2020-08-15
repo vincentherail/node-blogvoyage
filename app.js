@@ -8,7 +8,8 @@ const Travel = require('./models/travel');
 // express app
 const app = express();
 
-// connect to MongoDB (user:pw ... dbname)
+// connect to MongoDB (mongodb+srv://<user>:<pw> ... <db>)
+// mongoose est un Object Document Mapping library qui facilite la communication avec la DB
 const dbURI = 'mongodb+srv://netninja:test1234@nodetuts.s1bu5.mongodb.net/nodetuts?retryWrites=true&w=majority';
 mongoose.connect(dbURI, { useNewUrlParser: true, useUnifiedTopology: true })
     .then((result) => app.listen(PORT)) // on écoute les requêtes une fois seulement connecté à la DB
