@@ -7,10 +7,10 @@
   <div class="blogs content">
     <h2>Tous les voyages</h2>
 
-    <% if (blogs.length > 0) { %>
-      <% blogs.forEach(blog => { %>
-        <h3 class="title"><%= blog.title %></h3>
-        <p class="snippet"><%= blog.snippet %></p><br>
+    <% if (travels.length > 0) { %>
+      <% travels.forEach(travel => { %>
+        <h3 class="title"><%= travel.title %></h3>
+        <p class="snippet"><%= travel.snippet %></p><br>
       <% }) %>
     <% } else { %>
       <p>Pas de voyage à afficher...</p>
