@@ -1,3 +1,5 @@
+let PORT = process.env.PORT || 3000;
+
 const express = require('express');
 const morgan = require('morgan'); // middleware package
 const mongoose = require('mongoose');
@@ -9,7 +11,7 @@ const app = express();
 // connect to MongoDB (user:pw ... dbname)
 const dbURI = 'mongodb+srv://netninja:test1234@nodetuts.s1bu5.mongodb.net/nodetuts?retryWrites=true&w=majority';
 mongoose.connect(dbURI, { useNewUrlParser: true, useUnifiedTopology: true })
-    .then((result) => app.listen(3000)) // on écoute les requêtes une fois seulement connecté à la DB
+    .then((result) => app.listen(PORT)) // on écoute les requêtes une fois seulement connecté à la DB
     .catch((err) => console.log(err)); // accolade supprime deprecation warning
 
 
