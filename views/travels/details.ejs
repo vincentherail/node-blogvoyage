@@ -1,0 +1,33 @@
+<html lang="fr">
+<%- include("../partials/head.ejs") %>
+
+<body>
+  <%- include("../partials/nav.ejs") %>
+
+  <div class="details content">
+    <h2><%= travel.title %></h2>
+    <div class="content">
+      <p><%= travel.body %></p>
+    </div>
+    <a class="delete" data-doc="<%= travel._id %>">
+      <img src="/trashcan.svg" alt="delete icon">
+    </a>
+  </div>
+
+  <%- include("../partials/footer.ejs") %>
+
+  <script>
+    const trashcan = document.querySelector('a.delete');
+    trashcan.addEventListener('click', (e) => {
+      const endpoint = `/travels/${trashcan.dataset.doc}`; // dataset.doc corrrespond à travel._id dans data-doc
+      fetch(endpoint, {   // requête AJAX, on demande de DELETE le travel._id   ((( 1 )))
+        method: 'DELETE',
+      })
+      .then(response => response.json()) //  On reçoit une réponse JSON que l'on va parser pour pouvoir l'exploiter en JS //  ((( 3 )))
+      .then(data => window.location.href = data.redirect) // la réponse est désormais exploitable, on redirige //  ((( 4 )))
+      .catch(err => console.log(err));
+    });
+    
+  </script>
+</body>
+</html>

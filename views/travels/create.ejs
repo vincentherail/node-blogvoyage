@@ -1,11 +1,11 @@
 <html lang="fr">
-<%- include("./partials/head.ejs") %>
+<%- include("../partials/head.ejs") %>
 
 <body>
-  <%- include("./partials/nav.ejs") %>
+  <%- include("../partials/nav.ejs") %>
 
   <div class="create-blog content">
-    <form>
+    <form action="/travels" method="POST">
       <label for="title">Destination:</label>
       <input type="text" id="title" name="title" required>
       <label for="snippet">Résumé:</label>
@@ -16,6 +16,6 @@
     </form>
   </div>
 
-  <%- include("./partials/footer.ejs") %>
+  <%- include("../partials/footer.ejs") %>
 </body>
 </html>

@@ -1,0 +1,25 @@
+<html lang="fr">
+<%- include("../partials/head.ejs") %>
+
+<body>
+  <%- include("../partials/nav.ejs") %>
+
+  <div class="blogs content">
+    <h2>Tous les voyages</h2>
+
+    <% if (travels.length > 0) { %>
+      <% travels.forEach(travel => { %>
+        <a class="single" href="/travels/<%= travel._id %>">
+          <h3 class="title"><%= travel.title %></h3>
+          <p class="snippet"><%= travel.snippet %></p><br>
+        </a>
+      <% }) %>
+    <% } else { %>
+      <p>Pas de voyage à afficher...</p>
+    <% } %>
+    
+  </div>
+
+  <%- include("../partials/footer.ejs") %>
+</body>
+</html>
